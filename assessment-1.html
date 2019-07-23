@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        //window.onload = f1;
+        function f1(){                   
+        document.getElementsByTagName("h1")[0].innerHTML = "Welcome from Body Onload";
+        console.log("body");
+        }
+        window.addEventListener("load", f2);
+        function f2(){
+             document.getElementsByTagName("h1")[0].innerHTML = "Welcome from Window Event Listener";
+             window.removeEventListener("load", f2);
+             console.log("window");
+
+        }
+        document.addEventListener("DOMContentLoaded",function(){
+            document.getElementsByTagName("h1")[0].innerHTML = "Welcome from Document Event Listener";
+            console.log("document");
+
+        })
+     </script>
+</head>
+<body onload="f1()">
+    <h1> </h1>
+    <h1> </h1>
+    <h1> </h1>
+</body>
+</html>
